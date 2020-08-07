@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  broker-local:
+    image: rabbitmq:3-management-alpine
+    environment:
+      RABBIT_DEFAULT_USER: user
+      RABBIT_DEFAULT_PASS: password
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - mensageria
+
+networks:
+  mensageria:
+    driver: bridge
